@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "582387185973",
+    "firebase_url": "https://cabusmvp.firebaseio.com",
+    "project_id": "cabusmvp",
+    "storage_bucket": "cabusmvp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:582387185973:android:1eec85b656094facfff47c",
+        "android_client_info": {
+          "package_name": "com.example.cabusmvp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "582387185973-h0ntesrv04nh6pdojtl54dct5aift8bg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cabusmvp",
+            "certificate_hash": "c16451be7ce34bf67ffc7f5e698d2f8c6b132156"
+          }
+        },
+        {
+          "client_id": "582387185973-3nvfo8ujnm3vrifpk75gglqcqfkmb5bl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKoadA5Jxpqh-FWTAYj58IubkXx9puyDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "582387185973-3nvfo8ujnm3vrifpk75gglqcqfkmb5bl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

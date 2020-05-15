@@ -1,0 +1,102 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.cabusmvp"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        android.defaultConfig.vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+// STEP 70
+// Get location services from google -- implementation 'com.google.android.gms:play-services-location:17.0.0'
+// Now go to DriverMapsActivity.java for step 71
+
+// STEP 88
+// To use Geofire add under dependency -- implementation 'com.firebase:geofire-android:3.0.0'
+// Step 89 is back in DriverMapsActivity.java
+
+// STEP 97
+// Add dependency for menu bar -- implementation 'com.google.android.material:material:1.1.0'
+// Step 98 in activity_driver_maps.xml -- text tab
+
+// STEP 116
+// Add places dependency -- implementation 'com.google.android.libraries.places:places:2.2.0'
+// Step 117 is back in CustomerMapsActivity.java
+
+// STEP 271
+// Add glide library to dependency to ease use of pictures in database
+// implementation 'com.github.bumptech.glide:glide:4.11.0'
+// annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+// step 272 in customer settings xml
+
+// STEP 301
+// Add dependencies for cardview and recyclerview
+// step 302 in CustomerMapsActivity.java -- top of file
+
+// STEP 359
+// Add dependency for directions, but this is third part not google
+// implementation 'com.github.jd-alexander:library:1.1.0'
+// Also the below two MAY be needed for directions as well
+// ENSURE that directions api is enabled in google cloud platform
+// step 360 in DriverMapsActivity.java -- right at the top
+
+// STEP 492
+// Add dependencies for retrofit, gson, and gson-converter (required for nearby places)
+// implementation 'com.google.code.gson:gson:2.8.5'
+//    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+//    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+// Step 493 in MyPlaces.java
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
+    implementation 'com.google.firebase:firebase-database:19.3.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    implementation 'com.firebase:geofire-android:3.0.0'
+
+    implementation 'com.google.android.material:material:1.1.0'
+
+    implementation 'com.google.android.libraries.places:places:2.2.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
+
+    implementation 'com.github.jd-alexander:library:1.1.0'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+}

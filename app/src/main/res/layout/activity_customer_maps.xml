@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+// STEP 106
+Copy-paste all activity_driver_maps.xml -
+just change context to - ".CustomerMapsActivity" in <fragment
+Step 107 in CustomerMapsActivity.java
+
+// STEP 111
+// Add buttons and edit texts to enable user to set origin and destination
+// step 112 in CustomerMapsActivity.java file
+
+// STEP 247
+// Setup settings button
+// step 248 is back in CustomerMapsActivity.java
+
+// STEP 343
+// We want to show driver info to the customer
+// Step 344 in CustomerMapsActivity.java
+
+// STEP 429
+// Add an info button for history - btnHistory
+// Step 430 is in CustomerMapsActivity.java
+
+// STEP 548
+// We want to create another card view which will show destination distance and price
+// Step 549 is setting up the elements in CustomerMapsActivity
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/ibLogout"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="right"
+        android:layout_margin="7dp"
+        android:background="@drawable/logout" />
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/settings" />
+
+    <Button
+        android:id="@+id/btnHistory"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/history" />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CustomerMapsActivity"
+        tools:layout="@android:layout/simple_gallery_item" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/search_box_origin"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorPrimary"
+        map:cardCornerRadius="10dp"
+        map:cardElevation="10dp">
+
+        <Button
+            android:id="@+id/ibEditOrigin"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="19dp"
+            android:background="@drawable/edit_search" />
+
+        <EditText
+            android:id="@+id/etOrigin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="Enter current location"
+            android:inputType="textPersonName"
+            android:paddingLeft="50dp"
+            android:paddingRight="10dp"
+            android:textAlignment="center"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/search_box_destination"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorPrimary"
+        map:cardCornerRadius="10dp"
+        android:visibility="gone"
+        map:cardElevation="10dp">
+
+        <Button
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="19dp"
+            android:background="@drawable/edit_yellow" />
+
+        <EditText
+            android:id="@+id/etDestination"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="Enter metro station"
+            android:inputType="textPersonName"
+            android:paddingLeft="50dp"
+            android:paddingRight="10dp"
+            android:textAlignment="center"/>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorAccent"
+        android:visibility="gone"
+        android:text="Cancel cab"
+        android:onClick="cancelCab"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnDestination"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="#00b0ff"
+        android:text="Set my destination"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnOrigin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorAccent"
+        android:text="Confirm my location"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/driver_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="70dp"
+        android:padding="3dp"
+        map:cardCornerRadius="5dp"
+        android:visibility="gone"
+        map:cardElevation="7dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivDriverImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                map:srcCompat="@mipmap/person_icon_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="3dp"
+                    android:text="Driver Name:"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:padding="3dp"
+                    android:text="Driver Phone:" />
+
+                <TextView
+                    android:id="@+id/tvCarNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:padding="3dp"
+                    android:text="Car Number:" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/destination_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="70dp"
+        android:visibility="gone"
+        android:padding="5dp"
+        map:cardCornerRadius="5dp"
+        map:cardElevation="7dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:padding="3dp"
+                android:text="Route Information"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:padding="3dp"
+                android:text="Estimated distance: " />
+
+            <TextView
+                android:id="@+id/tvDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:padding="3dp"
+                android:text="Estimated time: " />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="6dp"
+                android:padding="3dp"
+                android:text="Estimated price: " />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

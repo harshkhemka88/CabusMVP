@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+// STEP 442
+// Create a layout for how each row will look here
+// Start with just a single text view - we will add more elements later
+// Step 443 in HistoryViewHolders.java
+
+// STEP 471
+// Add text view: timestamp
+// Step 472 in HistoryViewHolders.java
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="7dp"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/info_yellow" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:padding="3dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvRideId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ride Id: "
+                    android:layout_marginLeft="5dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTimestamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Timestamp: "
+                    android:layout_marginLeft="5dp"
+                    android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

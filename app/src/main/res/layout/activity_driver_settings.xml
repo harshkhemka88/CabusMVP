@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+// STEP 335
+// Setup the xml
+// copy-paste the customer settings xml
+// Add additional edit text for car number
+// Remember to change tools:context=".CustomerSettingsActivity" to .DriverSettingsActivity
+// step 336 in DriverSettingsActivity.java
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context=".DriverSettingsActivity">
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="left"
+        android:layout_margin="10dp"
+        android:background="@drawable/back_arrow" />
+
+    <ImageView
+        android:id="@+id/ivDriverImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:clickable="true"
+        app:srcCompat="@mipmap/person_icon_foreground" />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:background="@android:drawable/editbox_background"
+        android:ems="10"
+        android:hint="Please enter your name"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:background="@android:drawable/editbox_background"
+        android:ems="10"
+        android:hint="Please enter your phone number"
+        android:inputType="phone"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/etCarNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:background="@android:drawable/editbox_background"
+        android:ems="10"
+        android:hint="Please enter your car number"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:background="@color/colorAccent"
+        android:text="Confirm"
+        android:textStyle="bold" />
+
+</LinearLayout>

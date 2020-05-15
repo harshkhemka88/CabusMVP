@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+// STEP 98
+// Make the base layout as frame layout
+// cut paste the below code from map to frame
+xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+// STEP 99
+// cut paste the map fragment inside the frame layout
+
+// STEP 100
+// Put an image button and format it
+// Step 101 in DriverMapsActivity.java
+
+// STEP 294
+// We want to show the customer info to driver when the customer books
+// setup the look for that
+// step 295 in DriverMapsActivity.java
+
+// STEP 306
+// Add another text view for destination
+Step 307 in DriverMapsActivity.java
+
+// STEP 330
+// Setup a settings button here for profile
+// step 331 in DriverMapsActivity.java
+
+// STEP 390
+// Setup button for picked up user and dropped user, and text view for route details
+// step 391 in DriverMapsActivity.java
+
+// STEP 555
+// Improve the look of the screen
+// Step 556 in DriverMapsActivity
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/ibLogout"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="right"
+        android:layout_margin="7dp"
+        android:background="@drawable/logout"/>
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/settings" />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DriverMapsActivity"
+        tools:layout="@android:layout/simple_gallery_item" />
+
+    <Button
+        android:id="@+id/btnStatus"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="#00b0ff"
+        android:text="Start Trip"
+        android:textColor="@android:color/white"
+
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/customer_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="15dp"
+        android:padding="3dp"
+
+        map:cardCornerRadius="10dp"
+        map:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:text="Trip Details"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/ivCollapse"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_keyboard_arrow_down_black_24dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:animateLayoutChanges="true"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ivCustomerImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                map:srcCompat="@mipmap/person_icon_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_weight="3"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="3dp"
+                    android:text="Customer Name: "
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:padding="3dp"
+                    android:text="Customer Phone: "
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tvDestination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:padding="3dp"
+                    android:text="Destination: "
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tvRoute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:padding="3dp"
+                    android:text="Route details: "
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tvDetailsDestination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:padding="3dp"
+                    android:text="Destination details: "
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
+
